@@ -118,12 +118,12 @@ namespace cfx {
                 lines.push_back(body);
             }
             void show(dye::R<std::string> (*f)(std::string)) {
-                std::cout << f(std::string(max_len+2, ' ')) << "\n";
+                std::cout << f(std::string(max_len+4, ' ')) << "\n";
                 for(std::string line: lines) {
-                    std::cout << f(' ' + line + std::string(max_len - line.length() + 1, ' '));
+                    std::cout << f("  " + line + std::string(max_len - line.length() + 2, ' '));
                     std::cout << "\n";
                 }
-                std::cout << f(std::string(max_len+2, ' '));
+                std::cout << f(std::string(max_len+4, ' '));
             }
     };
 }
