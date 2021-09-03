@@ -86,4 +86,5 @@ namespace cfx {
         std::cout << f("|\n");
         std::cout << f("+-" + std::string(body.length(), '-') + "-+\n");
     }
+    class area
 }
