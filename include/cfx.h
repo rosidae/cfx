@@ -117,13 +117,13 @@ namespace cfx {
                 }
                 lines.push_back(body);
             }
-            void show(dye::R<std::string> (*f)(std::string)) {
-                std::cout << f(std::string(max_len+4, ' ')) << "\n";
+            void show(dye::R<std::string> (*f)(std::string), int lpadding = 2) {
+                std::cout << f(std::string(max_len+(lpadding*4), ' ')) << "\n";
                 for(std::string line: lines) {
-                    std::cout << f("  " + line + std::string(max_len - line.length() + 2, ' '));
+                    std::cout << f(std::string(lpadding*2, ' ') + line + std::string(max_len - line.length() + (lpadding*2), ' '));
                     std::cout << "\n";
                 }
-                std::cout << f(std::string(max_len+4, ' '));
+                std::cout << f(std::string(max_len+(lpadding*4), ' '));
             }
     };
 }
