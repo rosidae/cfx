@@ -22,4 +22,4 @@ please use the issues area for:
 
  * issues
  * suggestions
- * and help
+ * help
