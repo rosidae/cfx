@@ -1,6 +1,8 @@
-    cfx
+# cfx
+
 a header only library for c++ to make console ui apps and stuff
-credit to [Lei Fu](https://github.com/imfl/color-console) for making color.h
+
+credits to [Lei Fu](https://github.com/imfl/color-console) for making color.h
 
 # starting out
 
