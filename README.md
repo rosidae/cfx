@@ -6,7 +6,7 @@ credits to [Lei Fu](https://github.com/imfl/color-console) for making color.h
 
 # starting out
 
-please visit (starting out help)[https://github.com/rosidae/cfx/wiki/starting-out]
+please visit [starting out help](https://github.com/rosidae/cfx/wiki/starting-out)
 
 # please read:
 
