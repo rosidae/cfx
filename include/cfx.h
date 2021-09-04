@@ -12,6 +12,9 @@
 #define cb_info &dye::on_light_yellow
 #define cb_dark_grey &dye::white_on_grey
 #define cb_err &dye::on_red
+#define underline "\033[4m"
+#define blink "\033[5m"
+#define reset "\033[0m"
 
 namespace cfx {
     // omg i hate this huge switch case statement but idk any other way to to it
@@ -175,6 +178,16 @@ namespace cfx {
                     std::cout << line;
                     std::cout << "\n";
                 }
+            }
+    };
+    class input {
+        public:
+            input() {};
+            std::string get(std::string m, std::string sep = "|>") {
+                std::string in;
+                std::cout << m << blink << " "+sep+" " << reset;
+                std::getline(std::cin, in);
+                return in;
             }
     };
 }
