@@ -7,6 +7,8 @@
 #define c_white &dye::white
 #define c_info &dye::light_yellow
 #define c_err &dye::red
+#define c_blue &dye::blue
+#define cb_blue &dye::on_blue
 #define cb_info &dye::on_light_yellow
 #define cb_dark_grey &dye::white_on_grey
 #define cb_err &dye::on_red
@@ -124,6 +126,33 @@ namespace cfx {
                     std::cout << "\n";
                 }
                 std::cout << f(std::string(max_len+(hpadding*4), ' '));
+            }
+    };
+    class info_box {
+        private:
+            int max_len = 0;
+            std::vector<std::string> lines;
+        public:
+            info_box() {};
+            void body(std::string body) {
+                if(max_len < body.length()) {
+                    max_len = body.length();
+                }
+                lines.push_back(body);
+            }
+            void show(std::string title, dye::R<std::string> (*f)(std::string)) {
+                std::cout << f("+" + std::string(max_len+2, '-') + "+\n");
+                std::cout << f("|");
+                stylify(' ' + title + std::string(max_len - title.length() + 1, ' '));
+                std::cout << f("|\n");
+                std::cout << f("+-" + std::string(max_len, '-') + "-+");
+                std::cout << "\n";
+                for(std::string line: lines) {
+                    std::cout << f("|");
+                    stylify(' ' + line + std::string(max_len - line.length() + 1, ' '));
+                    std::cout << f("|\n");
+                }
+                std::cout << f("+-" + std::string(max_len, '-') + "-+\n");
             }
     };
 }
