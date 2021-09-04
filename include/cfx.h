@@ -128,12 +128,12 @@ namespace cfx {
                 std::cout << f(std::string(max_len+(hpadding*4), ' '));
             }
     };
-    class info_box {
+    class info_sec {
         private:
             int max_len = 0;
             std::vector<std::string> lines;
         public:
-            info_box() {};
+            info_sec() {};
             void body(std::string body) {
                 if(max_len < body.length()) {
                     max_len = body.length();
@@ -153,6 +153,28 @@ namespace cfx {
                     std::cout << f("|\n");
                 }
                 std::cout << f("+-" + std::string(max_len, '-') + "-+\n");
+            }
+    };
+    class info_box {
+        private:
+            int max_len = 0;
+            std::vector<std::string> lines;
+        public:
+            void body(std::string body) {
+                if(max_len < body.length()) {
+                    max_len = body.length();
+                }
+                lines.push_back(body);
+            }
+            void show(std::string title, dye::R<std::string> (*f)(std::string), int hpadding = 2) {
+                std::cout << f(std::string(max_len+(hpadding*4), ' ')) << "\n";
+                std::cout << f(std::string(hpadding*2, ' ') + title + std::string(max_len - title.length() + (hpadding*2), ' '));
+                std::cout << "\n";
+                std::cout << f(std::string(max_len+(hpadding*4), ' ') + "\n");
+                for(std::string line: lines) {
+                    std::cout << line;
+                    std::cout << "\n";
+                }
             }
     };
 }
