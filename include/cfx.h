@@ -207,11 +207,11 @@ namespace cfx {
             list(std::vector<std::string> l) {
                 selection_list = l;
             };
-            int show(std::string message, std::string seporator = "|>") {
+            int show(std::string message, std::string sep = "|>") {
                 for(std::string item: selection_list) {
                     std::cout << item << "\n";
                 }
-                std::cout << message << blink << " " << seporator << " " << reset;
+                std::cout << message << blink << " " << sep << " " << reset;
                 std::getline(std::cin, s_selected_index);
                 try {
                     selected_index = std::stoi(s_selected_index);
