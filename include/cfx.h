@@ -16,6 +16,9 @@
 #define blink "\033[5m"
 #define italicize "\033[3m"
 #define reset "\033[0m"
+#define memorize "\033[7"
+#define goto "\033[8"
+#define bell "\a"
 
 namespace cfx {
     // omg i hate this huge switch case statement but idk any other way to to it
@@ -88,6 +91,10 @@ namespace cfx {
                     break;
             }
         }
+    }
+    void gotoxy(int x,int y)    
+    {
+        printf("%c[%d;%df",0x1B,y,x);
     }
     class sec {
         private:
@@ -189,6 +196,35 @@ namespace cfx {
                 std::cout << m << blink << " "+sep+" " << reset;
                 std::getline(std::cin, in);
                 return in;
+            }
+    };
+    class list {
+        private:
+            std::vector<std::string> selection_list;
+            std::string s_selected_index;
+            int selected_index;
+        public:
+            list(std::vector<std::string> l) {
+                selection_list = l;
+            };
+            int show(std::string message, std::string seporator = "|>") {
+                for(std::string item: selection_list) {
+                    std::cout << item << "\n";
+                }
+                std::cout << message << blink << " " << seporator << " " << reset;
+                std::getline(std::cin, s_selected_index);
+                try {
+                    selected_index = std::stoi(s_selected_index);
+                } catch(std::invalid_argument) {
+                    return -1;
+                }
+                if(selected_index > selection_list.size()) {
+                    return -1;
+                }
+                if(selected_index < 1) {
+                    return -1;
+                }
+                return selected_index-1;
             }
     };
 }
