@@ -10,7 +10,7 @@ please visit [starting out help](https://github.com/rosidae/cfx/wiki/starting-ou
 
 # please read:
 
-all examples in the wiki should be 100% reproducable in the Windows Terminal application off of the Microsoft store using `g++ -o test test.cpp -I".\include\"` with a monospace font and in powershell
+all examples in the wiki should be 100% reproducable in the Windows Terminal application off of the Microsoft store using `g++ -o test test.cpp -I".\include\"` with a monospace font (i am using Source Code Pro (normal font weight)) and in powershell
 
 do not expect this side-project of mine to be optomized, maintained, or well documented
 
