@@ -14,6 +14,7 @@
 #define cb_err &dye::on_red
 #define underline "\033[4m"
 #define blink "\033[5m"
+#define italicize "\033[3m"
 #define reset "\033[0m"
 
 namespace cfx {
