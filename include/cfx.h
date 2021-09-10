@@ -203,13 +203,15 @@ namespace cfx {
             std::vector<std::string> selection_list;
             std::string s_selected_index;
             int selected_index;
+            int i = 1;
         public:
             list(std::vector<std::string> l) {
                 selection_list = l;
             };
             int show(std::string m, std::string sep = "|>") {
                 for(std::string item: selection_list) {
-                    std::cout << item << "\n";
+                    std::cout << i << blink << sep << reset << item << "\n";
+                    i++;
                 }
                 std::cout << m << blink << " " << sep << " " << reset;
                 std::getline(std::cin, s_selected_index);
