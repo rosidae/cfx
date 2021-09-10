@@ -229,4 +229,22 @@ namespace cfx {
                 return selected_index-1;
             }
     };
+
+    class log {
+        private:
+            std::string tag;
+            dye::R<std::string> (*func)(std::string);
+        public:
+            log(std::string t, dye::R<std::string> (*f)(std::string)) {
+                tag = t;
+                func = f;
+            }
+            void show(std::string text) {
+                std::cout 
+                << blink << "[" << reset 
+                << func(tag)
+                << blink << "] " << reset;
+                stylify(text);
+            }
+    };
 }
