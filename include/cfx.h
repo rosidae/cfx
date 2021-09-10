@@ -210,7 +210,7 @@ namespace cfx {
             };
             int show(std::string m, std::string sep = "|>") {
                 for(std::string item: selection_list) {
-                    std::cout << i << blink << sep << reset << item << "\n";
+                    std::cout << i << blink << " " << sep << " " << reset << item << "\n";
                     i++;
                 }
                 std::cout << m << blink << " " << sep << " " << reset;
