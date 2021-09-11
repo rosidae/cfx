@@ -229,7 +229,6 @@ namespace cfx {
                 return selected_index-1;
             }
     };
-
     class log {
         private:
             std::string tag;
@@ -246,5 +245,5 @@ namespace cfx {
                 << blink << "] " << reset;
                 stylify(text);
             }
-    };
+    }; // test
 }
